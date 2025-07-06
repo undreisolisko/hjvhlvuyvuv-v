@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+}
+
+#miner-area {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+#miner {
+  width: 100px;
+  height: auto;
+  animation: minerAnim 1s steps(4) infinite;
+}
+
+#tip-text {
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+
+#inventory-area {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 120px;
+}
+
+#inventory {
+  width: 100px;
+  height: auto;
+  animation: inventoryOnce 1s steps(4) 1;
+}
+
+#inventory-items {
+  margin-top: 5px;
+  font-size: 14px;
+  color: white;
+}
+
+#falling-items-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.falling-item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  animation: fall linear;
+}
+
+@keyframes minerAnim {
+  0% { background-position: 0 0; }
+  100% { background-position: -400px 0; }
+}
+
+@keyframes inventoryOnce {
+  0% { background-position: 0 0; }
+  100% { background-position: -400px 0; }
+}
+
+@keyframes fall {
+  0% { top: -50px; }
+  100% { top: 100vh; }
+}
